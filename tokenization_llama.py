@@ -80,7 +80,6 @@ class LLaMATokenizer(PreTrainedTokenizer):
 
         self.tokenizer = enc  # type: tiktoken.Encoding
 
-        self.eod_id = self.tokenizer.eot_token
         self.bos_id: int = self.special_tokens["<|begin_of_text|>"]
         self.eos_id: int = self.special_tokens["<|end_of_text|>"]
         self.pad_id: int = -1
