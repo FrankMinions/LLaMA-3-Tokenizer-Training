@@ -9,7 +9,7 @@ with open("/path/to/your/*.txt") as f:
 
 simply_bpe = SimpleBytePairEncoding.train(training_data=training_data, vocab_size=16000, pat_str=PAT_STR)
 
-with open("/path/to/your/llama3.tiktoken", mode="w", encoding="utf-8") as f:
+with open("/path/to/your/llama.tiktoken", mode="w", encoding="utf-8") as f:
     for k, v in simply_bpe.mergeable_ranks.items():
         line = base64.b64encode(k).decode("utf-8") + " " + str(v) + "\n"
         f.write(line)
