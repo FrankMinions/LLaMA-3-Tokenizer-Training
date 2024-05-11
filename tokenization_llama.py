@@ -1,4 +1,5 @@
 """Tokenization classes for LLaMA-3."""
+
 import os
 import base64
 import logging
@@ -9,7 +10,6 @@ import tiktoken
 from transformers import PreTrainedTokenizer, AddedToken
 
 logger = logging.getLogger(__name__)
-
 
 VOCAB_FILES_NAMES = {"vocab_file": "llama.tiktoken"}
 
@@ -238,5 +238,5 @@ class LLaMATokenizer(PreTrainedTokenizer):
         if isinstance(token_ids, int):
             token_ids = [token_ids]
         if skip_special_tokens:
-            token_ids = [i for i in token_ids if i < self.eod_id]
+            token_ids = [i for i in token_ids if i < self.eos_id]
         return self.tokenizer.decode(token_ids, errors=errors or self.errors)
